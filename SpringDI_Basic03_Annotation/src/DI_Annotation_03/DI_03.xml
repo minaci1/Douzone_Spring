@@ -40,6 +40,11 @@ xml 또는 annotation를 통해서 객체를 생성하고 조립하는 과정을
 	  <bean id="yy"  class="DI_Annotation_03.Recorder"></bean>
 	  <bean id="zz"  class="DI_Annotation_03.Recorder"></bean>
 	 
+	 
+	 
+
+	 
+	 
 </beans>
 
 

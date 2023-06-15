@@ -9,7 +9,7 @@ public class MonitorViewer {
 	}
 	
 	//@Autowired  by type
-	@Resource(name="yy") //°°Àº Å¸ÀÔÀÇ °´Ã¼°¡ ÀÖÀ»¶§ name °ªÀ¸·Î ªO´Â´Ù
+	@Resource(name="yy") //ê°™ì€ íƒ€ì…ì˜ ê°ì²´ê°€ ìˆì„ë•Œ name ê°’ìœ¼ë¡œ ï¿½OëŠ”ë‹¤
 	public void setRecorder(Recorder recorder) {
 		this.recorder = recorder;
 		System.out.println("setRecorder : " + this.recorder);
@@ -17,3 +17,6 @@ public class MonitorViewer {
 	
 	
 }
+
+
+

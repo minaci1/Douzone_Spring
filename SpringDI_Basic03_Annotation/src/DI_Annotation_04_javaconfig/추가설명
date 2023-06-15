@@ -49,10 +49,11 @@ result :
 
 class MemberRegisterService{
    private MemberDao memberdao;
-   public MemberRegisterService(MemberDao memberdao){
+   public MemberRegisterService(MemberDao memberdao){ //MemberRegisterService 은 MemberDao 에 의존합니다.
       this.memberdao = memberdao;
    }
 }
+ 
 이것만 보고 만들기 
 ===============================================================
 1. xml 설정
@@ -67,7 +68,7 @@ class MemberRegisterService{
 class MemberRegisterService{
    private MemberDao memberdao;
 
-   @Autowired
+   @Autowired //같은 타입이 있으면 주입된다. 
    public MemberRegisterService(MemberDao memberdao){
       this.memberdao = memberdao;
    }

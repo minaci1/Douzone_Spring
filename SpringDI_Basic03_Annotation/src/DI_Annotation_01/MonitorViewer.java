@@ -26,7 +26,7 @@ public class MonitorViewer {
 	>> aop jar 파일 추가
 	>> @Autowired 정상 동작하지 않는 경우
 	@Autowired(required = true) >> default >> 무조건 injection
-	@Autowired(required = false) >> 컨테이너 안에 원하는 타입의 객체가 없으면 주입 안하면 되지 
+	@Autowired(required = false) >> 컨테이너 안에 원하는 타입의 객체가 없으면 주입 안하면 되지 (유유해짐)
 	  
 	 */
 	@Autowired

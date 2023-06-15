@@ -3,22 +3,21 @@ package DI_Annotation_04_javaconfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration //DI.xml °°Àº ¿ªÇÒÀ» ÇÕ´Ï´Ù.(ºó°´Ã¼ »ı¼º°ú Á¶ÇÕ) ÀÚ¹ÙÆÄÀÏ·Î...
+@Configuration // xmlíŒŒì¼ì„ ëŒ€ì²´í•  ì„¤ì •íŒŒì¼ì´ ëœë‹¤!! -> DIConfig.xml ê°™ì€ ì—­í• 
+			   // -> Beanê°ì²´ ìƒì„±ê³¼ ì¡°ë¦½ì„ ìˆœìˆ˜ ìë°” íŒŒì¼ë¡œ í•  ìˆ˜ ìˆë‹¤
 public class ConfigContext {
 	
-	//xml <bean id="user" class="DI_Annotation_02_javaconfig.User" /> //·¹°Å½Ã 
-	//ÀÚ¹ÙÄÚµå¿¡¼­´Â ÇÔ¼ö¸¦ °´Ã¼¸¦ »ı¼ºÇÏ°í ¸®ÅÏÇÔ
-	
-	@Bean //½ºÇÁ¸µºÎÆ®ÀÏ ¶§ 
+	// xml : <bean id="user" class="DI_Annotation_04_javaconfig.User">
+	// ìë°” ì½”ë“œì—ì„œëŠ” í•¨ìˆ˜ë¥¼ í†µí•´ì„œ ê°ì²´ë¥¼ ìƒì„±í•˜ê³  ë¦¬í„´í•˜ê²Œ ë§Œë“ ë‹¤
+	@Bean
 	public User user() {
-		
 		return new User();
 	}
 	
-	//xml <bean id="user2" class="DI_Annotation_02_javaconfig.User2" /> //·¹°Å½Ã
+	// xml : <bean id="user2" class="DI_Annotation_04_javaconfig.User2">
 	@Bean
 	public User2 user2() {
 		return new User2();
 	}
-	
+
 }

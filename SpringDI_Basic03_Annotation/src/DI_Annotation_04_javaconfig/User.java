@@ -2,6 +2,6 @@ package DI_Annotation_04_javaconfig;
 
 public class User {
 	public void userMethod() {
-		System.out.println("User Å¬·¡½º ÇÔ¼ö");
+		System.out.println("User í´ë˜ìŠ¤ í•¨ìˆ˜");
 	}
 }
