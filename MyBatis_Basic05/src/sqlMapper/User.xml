@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Emp">
+	<!-- 원칙 :  parameterType="String" 
+	     parameter 1개 생략 일반적으로 ...
+	     resultType="kr.or.bit.dto.User 세터에 주입해준다.
+	     rs.get해야 하는데 
+	 -->
+	<select id="getone" parameterType="String" resultType="kr.or.bit.dto.User">
+		select empno, ename from emp where ename=#{ename}
+	</select>
+	
+	<!-- return multi row >> User 객체 여러개 >> List<User> (x) 지가 알아서 컬렉션(arrayList) 만든다. -->
+	<select id="getUsers" resultType="kr.or.bit.dto.User">
+		select empno , ename from emp
+	</select>
+</mapper>
+
+
+
