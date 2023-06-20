@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class CookieController {
 	
 	@RequestMapping("/cookie/make.do")
-	public String make(HttpServletResponse response) { //생성된 객체를 자동으로 받는다
+	public String make(HttpServletResponse response) { //was에서 생성된 객체를 자동으로 받는다(얻어와야 한다.)
 		
-		response.addCookie(new Cookie("auth", "1004"));//	
+		response.addCookie(new Cookie("auth", "1004"));//서블릿과 동일
 		return "cookie/CookieMake";
 	}
 	

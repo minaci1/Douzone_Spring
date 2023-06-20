@@ -8,4 +8,5 @@
 	-->
 	
 	<bean class="DI_03_Spring.MessageBean_kr" id="messageBean"></bean>
+	
 </beans>

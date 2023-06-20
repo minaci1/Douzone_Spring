@@ -5,29 +5,29 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 public class HelloApp {
 	public static void main(String[] args) {		
-		// À§¿Í °°ÀÌ ¾²·Á¸é.. Ã³À½ºÎÅÍ 2°³¸¦ ¸¸µéÁö..
-		// ÀÎÅÍÆäÀÌ½º ¾²·Á¸é ¾Æ·¡Ã³·³(´ÙÇü¼º + ´À½¼ÇÔ)
+		// ìœ„ì™€ ê°™ì´ ì“°ë ¤ë©´.. ì²˜ìŒë¶€í„° 2ê°œë¥¼ ë§Œë“¤ì§€..
+		// ì¸í„°íŽ˜ì´ìŠ¤ ì“°ë ¤ë©´ ì•„ëž˜ì²˜ëŸ¼(ë‹¤í˜•ì„± + ëŠìŠ¨í•¨)
 //		MessageBean messageBean = new MessageBean_kr();
 //		messageBean.sayHello("hong");
 		
-		// springÀ» ÅëÇØ¼­ ÄÁÅ×ÀÌ³Ê¸¦ ¸¸µé°í ¸Þ¸ð¸® ¾È¿¡ °´Ã¼¸¦ »ý¼ºÇÏ°í Á¶¸³(ÁÖÀÔ)ÇÑ´Ù
-		// GenericXmlApplicationContext -> ÀÚµ¿À¸·Î Çüº¯È¯À» ÇØÁØ´Ù
-		// classpath : ¾à¼ÓµÈ Ç¥Çö(root -> src)
+		// springì„ í†µí•´ì„œ ì»¨í…Œì´ë„ˆë¥¼ ë§Œë“¤ê³  ë©”ëª¨ë¦¬ ì•ˆì— ê°ì²´ë¥¼ ìƒì„±í•˜ê³  ì¡°ë¦½(ì£¼ìž…)í•œë‹¤
+		// GenericXmlApplicationContext -> ìžë™ìœ¼ë¡œ í˜•ë³€í™˜ì„ í•´ì¤€ë‹¤
+		// classpath : ì•½ì†ëœ í‘œí˜„(root -> src)
 		ApplicationContext context = new GenericXmlApplicationContext("classpath:DI_03_Spring/DI_03.xml");
 		
-		// Á¶¸³(ÁÖÀÔ)ÇÑ °´Ã¼ ²¨³»±â
-		// µÎ¹øÂ° ÆÄ¶ó¹ÌÅÍ >> MessageBean.class : MessageBean Å¬·¡½ºÀÇ Á¤º¸¸¦ ¹ÝÈ¯ÇØÁØ´Ù
+		// ì¡°ë¦½(ì£¼ìž…)í•œ ê°ì²´ êº¼ë‚´ê¸°
+		// ë‘ë²ˆì§¸ íŒŒë¼ë¯¸í„° >> MessageBean.class : MessageBean í´ëž˜ìŠ¤ì˜ ì •ë³´ë¥¼ ë°˜í™˜í•´ì¤€ë‹¤
 		MessageBean messageBean = (MessageBean)context.getBean("messageBean", MessageBean.class);
-		messageBean.sayHello("ÁøÈ£");
+		messageBean.sayHello("ì§„í˜¸");
 	}
 }
 /*
- * ¿ä±¸»çÇ×
- * 1. ÇÑ±Û¹öÀü(hong) >> ¾È³ç hong
- * 2. ¿µ¹®¹öÀü(hong) >> hello hong
+ * ìš”êµ¬ì‚¬í•­
+ * 1. í•œê¸€ë²„ì „(hong) >> ì•ˆë…• hong
+ * 2. ì˜ë¬¸ë²„ì „(hong) >> hello hong
  * 
  * MessageBean_kr
  * MessageBean_en
  * 
- * interface ´ÙÇü¼º ¼³°è
+ * interface ë‹¤í˜•ì„± ì„¤ê³„
  */

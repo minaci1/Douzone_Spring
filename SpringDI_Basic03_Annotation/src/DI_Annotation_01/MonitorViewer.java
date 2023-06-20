@@ -9,30 +9,27 @@ public class MonitorViewer {
 		return recorder;
 	}
 
-	//MonitorViewer´Â recorder ¿¡ ÀÇÁ¸ÇÕ´Ï´Ù. ... ÇÊ¿äÇÕ´Ï´Ù. ÁÖ¼Ò°¡ ÇÊ¿äÇØ¿ä
-	
+	// í•„ìš”í•œ ê°ì²´ ì£¼ì… ë°›ê¸°
+	// MonitorViewerëŠ” Recorderì— ì˜ì¡´í•œë‹¤, ì£¼ì†Œê°€ í•„ìš”í•©ë‹ˆë‹¤
 	
 	/*
-	 
-	   
-		<property name="recorder">
-			<bean class="DI_Annotation_01.Recorder"/>	
-		</property>
- 	Annotation À¸·Î 
- 	@Autowired (by type)
- 	ÄÁÅ×ÀÌ³Ê ¾È¿¡ ºó°´Ã¼µéÀÌ »ı¼ºµÇ°í ... ÁÖÀÔ... @Autowired ¸¸³ª¸é ... 
- 	ÄÁÅ×ÀÌ³Ê ¾È¿¡ Recorder Å¸ÀÔ ºó°´Ã¼¸¦ Ã£°í ÀÖÀ¸¸é ÀÚµ¿ÁÖÀÔ...
-	
-	>> aop jar ÆÄÀÏ Ãß°¡
-	>> @Autowired Á¤»ó µ¿ÀÛÇÏÁö ¾Ê´Â °æ¿ì
-	@Autowired(required = true) >> default >> ¹«Á¶°Ç injection
-	@Autowired(required = false) >> ÄÁÅ×ÀÌ³Ê ¾È¿¡ ¿øÇÏ´Â Å¸ÀÔÀÇ °´Ã¼°¡ ¾øÀ¸¸é ÁÖÀÔ ¾ÈÇÏ¸é µÇÁö (À¯À¯ÇØÁü)
-	  
+	 * ì›ë˜ëŠ”
+	 * <property name="recorder">
+	 *   <ref bean="recorder"/>
+	 * </property>ë¥¼ ì‚¬ìš©
+	 * 
+	 * í•˜ì§€ë§Œ
+	 * @Autowired(by type)ë¥¼ ì‚¬ìš©í•˜ë©´ í•œë²ˆì— í•´ê²°
+	 * ì»¨í…Œì´ë„ˆ ì•ˆì— Bean ê°ì²´ë“¤ì´ ìƒì„±ë˜ê³  ì£¼ì…í•˜ë ¤ í•œë‹¤
+	 * @Autowiredë¥¼ ë§Œë‚˜ë©´
+	 * ì»¨í…Œì´ë„ˆ ì•ˆì— Recorder íƒ€ì… Bean ê°ì²´ë¥¼ ì°¾ê³  ì°¾ìœ¼ë©´ ìë™ìœ¼ë¡œ ì£¼ì…í•œë‹¤
+	 * 
+	 * @Autowired(required=true) >> default >> ë¬´ì¡°ê±´ ì£¼ì…í•˜ë ¤ê³  í•œë‹¤
+	 * @Autowired(required=false) >> ì»¨í…Œì´ë„ˆ ì•ˆì— ì›í•˜ëŠ” íƒ€ì…ì˜ ê°ì²´ê°€ ì—†ìœ¼ë©´ ì£¼ì… ì•ˆí•˜ë©´ ë˜ì§€~
 	 */
-	@Autowired
+	
+	@Autowired(required=false)
 	public void setRecorder(Recorder recorder) {
 		this.recorder = recorder;
-	}
-	
-	
+	}	
 }

@@ -3,33 +3,38 @@ package DI_06_Spring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import DI_05_Spring.MyBean;
+ 
 
 public class HelloApp {
 
 	public static void main(String[] args) {
-	
- 
-		//java ÄÚµå
+
+
+		//java ì½”ë“œ
 		//ArticleService service = new ArticleService(new OracleDao());
 		//ArticleService service = new ArticleService(new MySqlDao());
 		//Article article=new Article();
 		//service.write(article);
-		
-		
+
+
 		ApplicationContext context = new GenericXmlApplicationContext("classpath:DI_06_Spring/DI_06.xml");
 		ArticleService service = context.getBean("service",ArticleService.class); 
 		Article article = context.getBean("article",Article.class);
-		
+
 		service.write(article);
- 
 		
+		
+		
+
+
+		
+
 		/*
 		  getBean()
-		  1. ÄÁÅ×ÀÌ³Ê ¾È¿¡ ÀÖ´Â °´Ã¼¸¦ ¸®ÅÏ  (new °¡ ¾Æ´Ï¿¹¿ä)
-		  2. return type Object (Å¸ÀÔ¿¡ ¸Â´Â casting)
-		  3. **½ºÇÁ¸µ ÄÁÅ×ÀÌ³Ê ¾È¿¡ °´Ã¼µéÀº default singleton
-		  4. **¿¹¿ÜÀûÀ¸·Î getbean() ÀÌ new ¶ó´Â ÇÒ ¼ö µµ ÀÖ´Ù (°ÅÀÇ ¾²Áö ¾Ê´Â´Ù)
+		  1. ì»¨í…Œì´ë„ˆ ì•ˆì— ìˆëŠ” ê°ì²´ë¥¼ ë¦¬í„´  (new ê°€ ì•„ë‹ˆì˜ˆìš”)
+		  2. return type Object (íƒ€ì…ì— ë§ëŠ” casting)
+		  3. **ìŠ¤í”„ë§ ì»¨í…Œì´ë„ˆ ì•ˆì— ê°ì²´ë“¤ì€ default singleton
+		  4. **ì˜ˆì™¸ì ìœ¼ë¡œ getbean() ì´ new ë¼ëŠ” í•  ìˆ˜ ë„ ìˆë‹¤ (ê±°ì˜ ì“°ì§€ ì•ŠëŠ”ë‹¤)
 		 */
 	}
 

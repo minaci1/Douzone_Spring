@@ -12,7 +12,8 @@ public class HelloApp {
 		DataSourceFactory factorty = context.getBean("dataSourceFactory",DataSourceFactory.class);
 		System.out.println(factorty.toString());
 		
-		
+	 
+				
 		
 	}
 

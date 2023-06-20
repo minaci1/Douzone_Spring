@@ -20,12 +20,17 @@ JAVA 코드
 	   ProtocolHandlerFactory factory = new ProtocolHandlerFactory();
 		
 		Map<String, ProtocolHandler> handler = new HashMap<String, ProtocolHandler>();
-		handler.put("rss", new RssHandler());
+		handler.put("rss", new RssHandler()); //변수는 좀 위에..
 		handler.put("rest", new RestHandler());
 		
 		factory.setHandlers(handler);	
+		
+		
+		
+		
 	
 --> 
+
 
 	<bean id="rssHandler" class="DI_09_Spring.RssHandler"></bean>
 	<bean id="protocolHandlerFactory" class="DI_09_Spring.ProtocolHandlerFactory">

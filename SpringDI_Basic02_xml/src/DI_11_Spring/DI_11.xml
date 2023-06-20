@@ -36,6 +36,6 @@ xml 설정 파일에서 Spring context 기능을 사용해야 가능
 		<property name="username" value="${jdbc.username}"></property>
 		<property name="password" value="${jdbc.password}"></property>
 	</bean>
-
+	
  
 </beans>

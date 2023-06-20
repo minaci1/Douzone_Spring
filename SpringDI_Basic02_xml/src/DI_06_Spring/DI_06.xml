@@ -18,17 +18,19 @@ xml 또는 annotation를 통해서 객체를 생성하고 조립하는 과정을
 		new가 붙은건 다 bean 만들어!
 		
         ArticleService service = new ArticleService(new MySqlDao());
-		Article article=new Article();
+		Article article=new Article(); //여기까지 만듬!!! write는 main가서~ 
 		service.write(article);
   -->
    <bean id="mySqlDao" class="DI_06_Spring.MySqlDao"></bean>
    <bean id="oracleDao" class="DI_06_Spring.OracleDao"></bean>
    <bean id ="service" class ="DI_06_Spring.ArticleService">
    		<constructor-arg>
-   			<ref bean="mySqlDao"/><!-- REF는 주소 //객체의 주소를 받겠다 // 여기만 바꾸면 됨  -->
+   			<ref bean="oracleDao"/><!-- REF는 주소 //객체의 주소를 받겠다 // 여기만 바꾸면 됨  -->
    		</constructor-arg>
    </bean>
    <bean id ="article" class ="DI_06_Spring.Article"></bean>
+   
+   
  </beans> 
   
   

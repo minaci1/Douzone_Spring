@@ -1,6 +1,10 @@
 package controllers.customer;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,9 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import dao.NoticeDao;
+import lombok.AllArgsConstructor;
 import vo.Notice;
 
 /*
@@ -25,6 +31,7 @@ controller  -> Model의존  (DAO , DTO) 가 필요
 NoticeController 는   NoticeDao에 의존한다
 필요하면 값을 받아야 해요 ... (DI , injection (생성자 , 함수(setter) 통해서 주입 받는다
 */
+@AllArgsConstructor
 @Controller
 @RequestMapping("/customer/*")
 public class NoticeController  {
@@ -49,7 +56,7 @@ public class NoticeController  {
 			@RequestParam(value="p" ,defaultValue="%%")String p) throws Exception {
 	     //DAO 객체 사용
 		//public List<Notice> getNotices(int page, String field, String query)
-		System.out.println("customer/notice.do 진입 ");
+		System.out.println("notice.do 진입 ");
 		 
 		
 		
@@ -99,14 +106,54 @@ public class NoticeController  {
 		
 	}
 	@PostMapping(value="noticeReg.do")
-	public String noticeReg(Notice n) {
-		System.out.println(n.toString());
+	public String noticeReg(Notice notice,HttpServletRequest request) {
+		System.out.println(notice.toString());
 		//글쓰기 완료 >> 목록 >> location.href ="" or response.sendRedirect
 		//Spring redirect:notice.do
-		return "redirect:notice.do";
+		
+		 
+		CommonsMultipartFile imagefile = notice.getFile();
+		System.out.println("imagefile.getName()" + imagefile.getName());
+		System.out.println("imagefile.getContentType()" + imagefile.getContentType());
+		System.out.println("imagefile.getOriginalFilename()" + imagefile.getOriginalFilename());
+		System.out.println("imagefile.getBytes().length" + imagefile.getBytes().length);
+
+		
+		String filename = imagefile.getOriginalFilename();
+		String path = request.getServletContext().getRealPath("/upload"); //배포된 서버의 경로
+		String fpath = path + "\\" + filename;  //c:\\temp\\a.jpg
+		System.out.println(fpath);
+		
+		
+		FileOutputStream fs =null;
+		try {
+			     fs = new FileOutputStream(fpath);
+			     fs.write(notice.getFile().getBytes());
+			     
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			 try {
+				fs.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		//파일명 (DTO)
+		notice.setFileSrc(filename);
+			
+		try {
+				noticsdao.update(notice);  //DB insert
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+		//처리가 끝나면 상세 페이지로 : redirect  글번호를 가지고 ....
+		return "redirect:noticeDetail.do?seq="+notice.getSeq();
 		
 	}
-	
+ 
 	
 	//form method = "post" action="" 현재 주소창에 있는 주소
 	//customer/noticeReg.do 전송 >> POST으로 들어옴 

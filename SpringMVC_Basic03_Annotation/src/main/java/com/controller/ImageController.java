@@ -35,9 +35,10 @@ public class ImageController {
 		   >> photo.setFile(CommonsMultipartFile file) 파일 자동으로 들어와요
 		   
 		 */
+		System.out.println("String submit 타는 곳 ");
 		System.out.println(photo.toString());
-		CommonsMultipartFile imagefile = photo.getFile();
-		System.out.println("imagefile.getName()" + imagefile.getName());
+		CommonsMultipartFile imagefile = photo.getFile(); //바이너리 타입 파일 옮겨 담기 
+		System.out.println("imagefile.getName()" + imagefile.getName()); //파일 이름
 		System.out.println("imagefile.getContentType()" + imagefile.getContentType());
 		System.out.println("imagefile.getOriginalFilename()" + imagefile.getOriginalFilename());
 		System.out.println("imagefile.getBytes().length" + imagefile.getBytes().length);
